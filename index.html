@@ -330,14 +330,25 @@
     }
 
 .hero__van-img {
+  display: block;
   width: 100%;
   max-width: 980px;
   height: auto;
   object-fit: contain;
-  transform: scale(1.08);
-  transform-origin: center;
   filter: drop-shadow(0 24px 80px rgba(0, 0, 0, 0.55));
+}
+    .hero__visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
 
+.hero__visual img {
+  width: 112%;
+  max-width: 1050px;
+  height: auto;
+}
     .services-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));

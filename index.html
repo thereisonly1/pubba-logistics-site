@@ -16,7 +16,8 @@
       --text:#fff;
       --muted:#b9b9b9;
       --line:#1d1d1d;
-      --accent:#44FFBB;
+      --accent:#37e2a1;
+      --accent-soft:rgba(55,226,161,.08);
       --max:1180px;
       --radius:18px;
     }
@@ -27,7 +28,8 @@
       background:var(--bg);
       color:var(--text);
       font-family:Inter,Arial,sans-serif;
-      line-height:1.5;
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
     }
     a{text-decoration:none;color:inherit}
     .container{width:min(100% - 32px,var(--max));margin:0 auto}
@@ -41,27 +43,35 @@
       min-height:78px;
       display:flex;align-items:center;justify-content:space-between;gap:16px;
     }
+    .brand-wrap{
+      display:flex;flex-direction:column;gap:4px;
+    }
     .brand{
       font-weight:800;letter-spacing:.06em;font-size:1.1rem;
     }
-    .nav-actions{display:flex;gap:10px;flex-wrap:wrap}
+    .brand-sub{
+      font-size:.8rem;color:var(--muted);
+    }
+    .nav-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
     .btn{
       display:inline-flex;align-items:center;justify-content:center;
       min-height:46px;padding:0 18px;border-radius:999px;
       border:1px solid var(--line);font-weight:700;
-      transition:.2s ease;
+      transition:.2s ease;font-size:.96rem;
+      cursor:pointer;
     }
     .btn:hover{transform:translateY(-1px)}
     .btn-primary{background:var(--accent);color:#000;border-color:var(--accent)}
     .btn-secondary{background:transparent;color:var(--text)}
+    .btn-quiet{background:transparent;color:var(--muted);border-color:transparent;}
     .hero{padding:72px 0 44px}
     .hero-grid{
       display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;
     }
     .status{
       display:inline-flex;align-items:center;gap:10px;
-      border:1px solid rgba(68,255,187,.18);
-      background:rgba(68,255,187,.08);
+      border:1px solid rgba(55,226,161,.18);
+      background:var(--accent-soft);
       color:#dcfff2;
       border-radius:999px;
       padding:10px 14px;
@@ -70,28 +80,45 @@
     }
     .dot{
       width:10px;height:10px;border-radius:50%;background:var(--accent);
-      box-shadow:0 0 0 6px rgba(68,255,187,.12);
+      box-shadow:0 0 0 6px rgba(55,226,161,.12);
     }
     h1,h2,h3{
       margin:0;
       font-family:Arial,sans-serif;
       font-weight:900;
       letter-spacing:.01em;
-      line-height:1;
+      line-height:1.1;
     }
-    h1{font-size:clamp(3rem,8vw,6.2rem);margin-bottom:18px}
+    h1{font-size:clamp(3rem,8vw,6.2rem);margin-bottom:12px}
     h2{font-size:clamp(2rem,4vw,3.3rem);margin-bottom:14px}
     h3{font-size:1.25rem;margin-bottom:10px}
-    .lead{font-size:1.12rem;color:var(--muted);max-width:760px}
-    .btn-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
-    .pills{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+    .hero-subline{
+      font-size:1.05rem;color:var(--muted);margin-bottom:4px;
+    }
+    .lead{
+      font-size:1.02rem;
+      color:var(--muted);
+      max-width:760px;
+    }
+    .btn-row{
+      display:flex;gap:14px;flex-wrap:wrap;margin-top:24px;
+    }
+    .btn-row .btn-primary{
+      flex:0 0 auto;
+    }
+    .btn-row .btn-secondary{
+      flex:0 0 auto;
+    }
+    .pills{
+      display:flex;flex-wrap:wrap;gap:12px;margin-top:20px;
+    }
     .pill{
       border:1px solid var(--line);
       border-radius:999px;
-      padding:10px 14px;
+      padding:8px 14px;
       color:#d6d6d6;
       background:#080808;
-      font-size:.92rem;
+      font-size:.9rem;
     }
     .hero-image{
       border:1px solid var(--line);
@@ -99,19 +126,27 @@
       overflow:hidden;
       background:var(--panel);
       min-height:420px;
-      display:flex;align-items:center;justify-content:center;
-      padding:24px;
+      display:flex;align-items:stretch;justify-content:center;
     }
     .hero-image-inner{
       width:100%;height:100%;
-      min-height:360px;
-      border:1px solid #202020;
       border-radius:18px;
-      display:flex;align-items:center;justify-content:center;
-      color:#6f6f6f;
-      text-align:center;
+      overflow:hidden;
+      position:relative;
       background:#050505;
-      padding:24px;
+    }
+    .hero-image-inner img{
+      width:100%;height:100%;object-fit:cover;display:block;
+    }
+    .hero-image-badge{
+      position:absolute;
+      left:18px;bottom:18px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(0,0,0,.7);
+      border:1px solid rgba(255,255,255,.12);
+      font-size:.78rem;
+      color:#e8e8e8;
     }
     .section{padding:80px 0;border-top:1px solid var(--line)}
     .eyebrow{
@@ -128,7 +163,7 @@
       border-radius:18px;
       padding:24px;
     }
-    .card p{margin:0;color:var(--muted)}
+    .card p{margin:0;color:var(--muted);font-size:.96rem}
     .split{display:grid;grid-template-columns:.95fr 1.05fr;gap:24px}
     .info-block{
       background:var(--panel);
@@ -136,14 +171,14 @@
       border-radius:24px;
       padding:28px;
     }
-    .list{display:grid;gap:12px;margin-top:18px}
-    .list-item{display:flex;gap:12px;align-items:flex-start;color:#dedede}
+    .list{display:grid;gap:10px;margin-top:16px}
+    .list-item{display:flex;gap:10px;align-items:flex-start;color:#dedede;font-size:.95rem}
     .check{
       width:22px;height:22px;flex:0 0 22px;
       border-radius:50%;
       display:inline-flex;align-items:center;justify-content:center;
-      background:rgba(68,255,187,.1);
-      border:1px solid rgba(68,255,187,.2);
+      background:rgba(55,226,161,.1);
+      border:1px solid rgba(55,226,161,.2);
       color:var(--accent);font-size:.84rem;
     }
     .contact-stack{display:grid;gap:14px;margin-top:20px}
@@ -159,26 +194,26 @@
     .contact-value{font-size:1.04rem;font-weight:700}
     form{display:grid;gap:16px}
     .form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-    .field{display:grid;gap:8px}
-    label{font-size:.92rem;font-weight:700}
+    .field{display:grid;gap:6px}
+    label{font-size:.9rem;font-weight:700}
     input,select,textarea{
       width:100%;
       background:#050505;color:#fff;
       border:1px solid #1f1f1f;border-radius:14px;
-      padding:14px 15px;font:inherit;outline:none;
+      padding:12px 14px;font:inherit;outline:none;
     }
     textarea{min-height:130px;resize:vertical}
     input:focus,select:focus,textarea:focus{
-      border-color:rgba(68,255,187,.45);
-      box-shadow:0 0 0 4px rgba(68,255,187,.08);
+      border-color:rgba(55,226,161,.45);
+      box-shadow:0 0 0 4px rgba(55,226,161,.08);
     }
     .full{grid-column:1 / -1}
-    .microcopy{font-size:.88rem;color:var(--muted)}
+    .microcopy{font-size:.86rem;color:var(--muted)}
     .cta-banner{
       border:1px solid var(--line);
       border-radius:24px;
       padding:34px;
-      background:linear-gradient(180deg,rgba(68,255,187,.06),rgba(68,255,187,.02));
+      background:linear-gradient(180deg,rgba(55,226,161,.06),rgba(55,226,161,.02));
     }
     footer{
       border-top:1px solid var(--line);
@@ -188,17 +223,21 @@
       display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
       align-items:center;
     }
-    .footer-links{display:flex;gap:16px;flex-wrap:wrap;color:var(--muted)}
+    .footer-links{display:flex;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:.95rem}
+
+    /* Mobile / tablet */
     @media (max-width:1024px){
       .hero-grid,.split{grid-template-columns:1fr}
       .grid-4{grid-template-columns:repeat(2,1fr)}
       .grid-3,.grid-2{grid-template-columns:1fr}
+      .hero{padding-top:60px}
     }
     @media (max-width:760px){
-      .header-inner{padding:14px 0;align-items:flex-start}
+      .header-inner{padding:10px 0;align-items:flex-start}
       .nav-actions{width:100%}
-      .nav-actions .btn{flex:1 1 calc(50% - 10px)}
+      .nav-actions .btn{flex:1 1 100%}
       .form-grid,.grid-4{grid-template-columns:1fr}
+      .btn-row{flex-direction:column}
       .btn-row .btn{width:100%}
       .hero{padding-top:52px}
     }
@@ -207,12 +246,15 @@
 <body>
   <header class="header">
     <div class="container header-inner">
-      <div class="brand">PUBBA LOGISTICS</div>
+      <div class="brand-wrap">
+        <div class="brand">PUBBA LOGISTICS</div>
+        <div class="brand-sub">Expedited cargo van & sprinter freight – Denver Metro</div>
+      </div>
       <div class="nav-actions">
-        <a class="btn btn-secondary" href="tel:13039002247">Call Now</a>
-        <a class="btn btn-secondary" href="sms:13039002247">Text Dispatch</a>
-        <a class="btn btn-secondary" href="mailto:dispatch@pubbalogistics.com">Email Us</a>
-        <a class="btn btn-primary" href="#quote">Get a Quote</a>
+        <a class="btn btn-primary" href="tel:13039002247">Call Dispatch</a>
+        <a class="btn btn-secondary" href="#quote">Get a Quote</a>
+        <a class="btn btn-quiet" href="sms:13039002247">Text</a>
+        <a class="btn btn-quiet" href="mailto:dispatch@pubbalogistics.com">Email</a>
       </div>
     </div>
   </header>
@@ -221,8 +263,12 @@
     <section class="hero">
       <div class="container hero-grid">
         <div>
-          <div class="status"><span class="dot"></span> Fast response for urgent business freight</div>
+          <div class="status">
+            <span class="dot"></span>
+            On-call for urgent business freight in Denver Metro
+          </div>
           <h1>FAST. DIRECT. RELIABLE.</h1>
+          <p class="hero-subline">Dedicated cargo van & sprinter capacity for time-critical commercial loads.</p>
           <p class="lead">
             Expedited cargo van and sprinter freight for brokers, contractors,
             suppliers, and commercial clients. Same-day pickups. Direct delivery.
@@ -231,23 +277,22 @@
 
           <div class="btn-row">
             <a class="btn btn-primary" href="tel:13039002247">Call Dispatch</a>
-            <a class="btn btn-secondary" href="sms:13039002247">Text for Immediate Response</a>
-            <a class="btn btn-secondary" href="mailto:dispatch@pubbalogistics.com">Email Dispatch</a>
-            <a class="btn btn-secondary" href="#quote">Request a Quote</a>
+            <a class="btn btn-secondary" href="#quote">Request a Freight Quote</a>
           </div>
 
           <div class="pills">
-            <span class="pill">Same-Day Service</span>
-            <span class="pill">Dedicated B2B Freight</span>
-            <span class="pill">Cargo Van & Sprinter Capacity</span>
-            <span class="pill">Contract Work Available</span>
+            <span class="pill">Same-day & ASAP service</span>
+            <span class="pill">Dedicated B2B freight</span>
+            <span class="pill">Cargo van & sprinter capacity</span>
+            <span class="pill">Contract & recurring lanes</span>
           </div>
         </div>
 
-        <div class="hero-image">
+        <div class="hero-image" aria-hidden="true">
           <div class="hero-image-inner">
-            Add your cargo van or brand photo here<br />
-            (replace this panel with your real image later)
+            <!-- Replace the src below with your real image -->
+            <img src="hero-van.jpg" alt="Pubba Logistics cargo van ready for expedited freight" />
+            <div class="hero-image-badge">Based in Denver • Commercial freight • Same-day options</div>
           </div>
         </div>
       </div>
@@ -258,26 +303,26 @@
         <span class="eyebrow">What We Handle</span>
         <h2>Freight Service Built for Business</h2>
         <p class="lead">
-          Clear service lines. No vague promises. Just dependable capacity for
-          commercial clients that need speed, communication, and consistency.
+          Clear service lines and dependable capacity for commercial clients that need speed,
+          communication, and consistency.
         </p>
 
         <div class="grid grid-4" style="margin-top:30px">
           <div class="card">
             <h3>Expedited Freight</h3>
-            <p>Time-critical shipments moved with urgency and direct coordination.</p>
+            <p>Time-critical shipments moved with urgency and direct coordination so freight does not sit on the dock.</p>
           </div>
           <div class="card">
             <h3>Same-Day Delivery</h3>
-            <p>Fast pickup and delivery for commercial freight that cannot wait.</p>
+            <p>Fast pickup and delivery for parts, equipment, and urgent commercial materials that cannot wait.</p>
           </div>
           <div class="card">
             <h3>Last-Mile Commercial</h3>
-            <p>Reliable final-leg delivery for suppliers, contractors, and local businesses.</p>
+            <p>Reliable final-leg delivery for suppliers, contractors, and local businesses that need a professional carrier.</p>
           </div>
           <div class="card">
             <h3>Dedicated Routes</h3>
-            <p>Recurring capacity for contract work, repeat lanes, and ongoing jobs.</p>
+            <p>Recurring capacity for contract work, repeat lanes, and ongoing jobs with a consistent partner.</p>
           </div>
         </div>
       </div>
@@ -295,17 +340,17 @@
             <div class="list">
               <div class="list-item"><span class="check">✓</span><span>Fast response when timing matters</span></div>
               <div class="list-item"><span class="check">✓</span><span>Direct communication with dispatch</span></div>
-              <div class="list-item"><span class="check">✓</span><span>Professional image and clear process</span></div>
+              <div class="list-item"><span class="check">✓</span><span>Professional image, clear expectations, and clean equipment</span></div>
             </div>
           </div>
 
           <div class="card">
             <h3>Built for Repeat Business</h3>
-            <p>The goal is not one shipment. The goal is to become the carrier clients call first when freight has to move.</p>
+            <p>The goal is not one shipment. The goal is to be the carrier clients call first when freight has to move.</p>
             <div class="list">
               <div class="list-item"><span class="check">✓</span><span>Available for recurring jobs and contract work</span></div>
               <div class="list-item"><span class="check">✓</span><span>Dedicated vehicle service options</span></div>
-              <div class="list-item"><span class="check">✓</span><span>Business-first positioning</span></div>
+              <div class="list-item"><span class="check">✓</span><span>Business-first positioning with a focus on reliability</span></div>
             </div>
           </div>
         </div>
@@ -324,7 +369,7 @@
           </div>
           <div class="card">
             <h3>02. Get a Fast Response</h3>
-            <p>We confirm availability, review the shipment details, and respond with the next step quickly.</p>
+            <p>We confirm availability, review the shipment, and respond with pricing and next steps quickly.</p>
           </div>
           <div class="card">
             <h3>03. Pickup and Delivery</h3>
@@ -345,8 +390,8 @@
           </p>
           <div class="list">
             <div class="list-item"><span class="check">✓</span><span>Denver Metro commercial delivery</span></div>
-            <div class="list-item"><span class="check">✓</span><span>Local and regional transport</span></div>
-            <div class="list-item"><span class="check">✓</span><span>Ongoing contract opportunities welcome</span></div>
+            <div class="list-item"><span class="check">✓</span><span>Local and regional transport (e.g. Colorado Springs, Fort Collins, and beyond)</span></div>
+            <div class="list-item"><span class="check">✓</span><span>Ongoing contract and recurring lane opportunities welcome</span></div>
           </div>
         </div>
 
@@ -362,7 +407,7 @@
             </a>
             <a class="contact-item" href="sms:13039002247">
               <span class="contact-label">Text</span>
-              <span class="contact-value">Text Dispatch for Immediate Response</span>
+              <span class="contact-value">Text dispatch for immediate response</span>
             </a>
             <a class="contact-item" href="mailto:dispatch@pubbalogistics.com">
               <span class="contact-label">Email</span>
@@ -379,8 +424,7 @@
           <span class="eyebrow">Quote Request</span>
           <h2>Request a Business Freight Quote</h2>
           <p class="lead">
-            Keep the form short. Make it easy. Capture what matters. This should feel
-            like a real dispatch intake form, not a generic contact page.
+            A short, dispatch-style intake form for brokers and business clients. Capture what matters without slowing down urgent freight.
           </p>
           <div class="list">
             <div class="list-item"><span class="check">✓</span><span>Fast way for brokers and business clients to send load details</span></div>
@@ -423,7 +467,7 @@
               </div>
               <div class="field">
                 <label for="pickup-time">Pickup Time</label>
-                <input id="pickup-time" name="pickup_time" type="text" placeholder="ASAP, today, scheduled time" />
+                <input id="pickup-time" name="pickup_time" type="text" placeholder="ASAP, today by 3 PM, tomorrow morning" />
               </div>
               <div class="field">
                 <label for="urgency">Urgency</label>
@@ -441,12 +485,15 @@
               </div>
               <div class="field full">
                 <label for="details">Load Details</label>
-                <textarea id="details" name="details" placeholder="Dimensions, weight, pieces, special handling, dock notes, or timing details"></textarea>
+                <textarea id="details" name="details" placeholder="Include dimensions, weight, pieces, special handling, dock notes, and any timing details"></textarea>
               </div>
             </div>
 
             <button class="btn btn-primary" type="submit">Send Quote Request</button>
-            <p class="microcopy">For urgent freight, calling or texting dispatch is the fastest option.</p>
+            <p class="microcopy">
+              You’ll get a response as soon as dispatch reviews your load details.
+              For urgent freight, calling or texting dispatch is the fastest option.
+            </p>
           </form>
         </div>
       </div>
@@ -463,9 +510,9 @@
           </p>
           <div class="btn-row">
             <a class="btn btn-primary" href="tel:13039002247">Call 303-900-2247</a>
+            <a class="btn btn-secondary" href="#quote">Request a Quote</a>
             <a class="btn btn-secondary" href="sms:13039002247">Text Dispatch</a>
             <a class="btn btn-secondary" href="mailto:dispatch@pubbalogistics.com">Email Dispatch</a>
-            <a class="btn btn-secondary" href="#quote">Get a Quote</a>
           </div>
         </div>
       </div>

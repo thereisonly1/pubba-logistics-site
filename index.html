@@ -1,536 +1,453 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pubba Logistics | Expedited Cargo Van & Sprinter Freight</title>
+  <meta charSet="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Preload hero image -->
+  <link rel="preload" as="image" href="/Final_Van_Pic.png" />
+
+  <title>Pubba Logistics – Sprint Freight & Cargo | Denver Metro</title>
   <meta
     name="description"
-    content="Pubba Logistics provides expedited cargo van and sprinter freight for brokers, contractors, suppliers, and commercial clients in Denver Metro and surrounding areas."
+    content="Reliable freight solutions for businesses that can't afford delays. Expedited freight, last mile delivery, and dedicated B2B logistics in Denver Metro. Call 303-900-2247."
   />
-  <style>
-    :root{
-      --bg:#000;
-      --panel:#0a0a0a;
-      --panel2:#111;
-      --text:#fff;
-      --muted:#b9b9b9;
-      --line:#1d1d1d;
-      --accent:#37e2a1;
-      --accent-soft:rgba(55,226,161,.08);
-      --max:1180px;
-      --radius:18px;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      background:var(--bg);
-      color:var(--text);
-      font-family:Inter,Arial,sans-serif;
-      line-height:1.6;
-      -webkit-font-smoothing:antialiased;
-    }
-    a{text-decoration:none;color:inherit}
-    .container{width:min(100% - 32px,var(--max));margin:0 auto}
-    .header{
-      position:sticky;top:0;z-index:30;
-      background:rgba(0,0,0,.9);
-      border-bottom:1px solid rgba(255,255,255,.06);
-      backdrop-filter:blur(10px);
-    }
-    .header-inner{
-      min-height:78px;
-      display:flex;align-items:center;justify-content:space-between;gap:16px;
-    }
-    .brand-wrap{
-      display:flex;flex-direction:column;gap:4px;
-    }
-    .brand{
-      font-weight:800;letter-spacing:.06em;font-size:1.1rem;
-    }
-    .brand-sub{
-      font-size:.8rem;color:var(--muted);
-    }
-    .nav-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;
-      min-height:46px;padding:0 18px;border-radius:999px;
-      border:1px solid var(--line);font-weight:700;
-      transition:.2s ease;font-size:.96rem;
-      cursor:pointer;
-    }
-    .btn:hover{transform:translateY(-1px)}
-    .btn-primary{background:var(--accent);color:#000;border-color:var(--accent)}
-    .btn-secondary{background:transparent;color:var(--text)}
-    .btn-quiet{background:transparent;color:var(--muted);border-color:transparent;}
-    .hero{padding:72px 0 44px}
-    .hero-grid{
-      display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;
-    }
-    .status{
-      display:inline-flex;align-items:center;gap:10px;
-      border:1px solid rgba(55,226,161,.18);
-      background:var(--accent-soft);
-      color:#dcfff2;
-      border-radius:999px;
-      padding:10px 14px;
-      font-size:.9rem;
-      margin-bottom:18px;
-    }
-    .dot{
-      width:10px;height:10px;border-radius:50%;background:var(--accent);
-      box-shadow:0 0 0 6px rgba(55,226,161,.12);
-    }
-    h1,h2,h3{
-      margin:0;
-      font-family:Arial,sans-serif;
-      font-weight:900;
-      letter-spacing:.01em;
-      line-height:1.1;
-    }
-    h1{font-size:clamp(3rem,8vw,6.2rem);margin-bottom:12px}
-    h2{font-size:clamp(2rem,4vw,3.3rem);margin-bottom:14px}
-    h3{font-size:1.25rem;margin-bottom:10px}
-    .hero-subline{
-      font-size:1.05rem;color:var(--muted);margin-bottom:4px;
-    }
-    .lead{
-      font-size:1.02rem;
-      color:var(--muted);
-      max-width:760px;
-    }
-    .btn-row{
-      display:flex;gap:14px;flex-wrap:wrap;margin-top:24px;
-    }
-    .btn-row .btn-primary{
-      flex:0 0 auto;
-    }
-    .btn-row .btn-secondary{
-      flex:0 0 auto;
-    }
-    .pills{
-      display:flex;flex-wrap:wrap;gap:12px;margin-top:20px;
-    }
-    .pill{
-      border:1px solid var(--line);
-      border-radius:999px;
-      padding:8px 14px;
-      color:#d6d6d6;
-      background:#080808;
-      font-size:.9rem;
-    }
-    .hero-image{
-      border:1px solid var(--line);
-      border-radius:24px;
-      overflow:hidden;
-      background:var(--panel);
-      min-height:420px;
-      display:flex;align-items:stretch;justify-content:center;
-    }
-    .hero-image-inner{
-      width:100%;height:100%;
-      border-radius:18px;
-      overflow:hidden;
-      position:relative;
-      background:#050505;
-    }
-    .hero-image-inner img{
-      width:100%;height:100%;object-fit:cover;display:block;
-    }
-    .hero-image-badge{
-      position:absolute;
-      left:18px;bottom:18px;
-      padding:8px 12px;
-      border-radius:999px;
-      background:rgba(0,0,0,.7);
-      border:1px solid rgba(255,255,255,.12);
-      font-size:.78rem;
-      color:#e8e8e8;
-    }
-    .section{padding:80px 0;border-top:1px solid var(--line)}
-    .eyebrow{
-      color:var(--accent);font-size:.8rem;font-weight:800;
-      letter-spacing:.16em;text-transform:uppercase;margin-bottom:12px;display:inline-block;
-    }
-    .grid{display:grid;gap:22px}
-    .grid-4{grid-template-columns:repeat(4,1fr)}
-    .grid-3{grid-template-columns:repeat(3,1fr)}
-    .grid-2{grid-template-columns:repeat(2,1fr)}
-    .card{
-      background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01));
-      border:1px solid var(--line);
-      border-radius:18px;
-      padding:24px;
-    }
-    .card p{margin:0;color:var(--muted);font-size:.96rem}
-    .split{display:grid;grid-template-columns:.95fr 1.05fr;gap:24px}
-    .info-block{
-      background:var(--panel);
-      border:1px solid var(--line);
-      border-radius:24px;
-      padding:28px;
-    }
-    .list{display:grid;gap:10px;margin-top:16px}
-    .list-item{display:flex;gap:10px;align-items:flex-start;color:#dedede;font-size:.95rem}
-    .check{
-      width:22px;height:22px;flex:0 0 22px;
-      border-radius:50%;
-      display:inline-flex;align-items:center;justify-content:center;
-      background:rgba(55,226,161,.1);
-      border:1px solid rgba(55,226,161,.2);
-      color:var(--accent);font-size:.84rem;
-    }
-    .contact-stack{display:grid;gap:14px;margin-top:20px}
-    .contact-item{
-      display:flex;flex-direction:column;gap:4px;
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:18px;background:#080808;
-    }
-    .contact-label{
-      font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)
-    }
-    .contact-value{font-size:1.04rem;font-weight:700}
-    form{display:grid;gap:16px}
-    .form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-    .field{display:grid;gap:6px}
-    label{font-size:.9rem;font-weight:700}
-    input,select,textarea{
-      width:100%;
-      background:#050505;color:#fff;
-      border:1px solid #1f1f1f;border-radius:14px;
-      padding:12px 14px;font:inherit;outline:none;
-    }
-    textarea{min-height:130px;resize:vertical}
-    input:focus,select:focus,textarea:focus{
-      border-color:rgba(55,226,161,.45);
-      box-shadow:0 0 0 4px rgba(55,226,161,.08);
-    }
-    .full{grid-column:1 / -1}
-    .microcopy{font-size:.86rem;color:var(--muted)}
-    .cta-banner{
-      border:1px solid var(--line);
-      border-radius:24px;
-      padding:34px;
-      background:linear-gradient(180deg,rgba(55,226,161,.06),rgba(55,226,161,.02));
-    }
-    footer{
-      border-top:1px solid var(--line);
-      padding:38px 0 60px;
-    }
-    .footer-wrap{
-      display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
-      align-items:center;
-    }
-    .footer-links{display:flex;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:.95rem}
 
-    /* Mobile / tablet */
-    @media (max-width:1024px){
-      .hero-grid,.split{grid-template-columns:1fr}
-      .grid-4{grid-template-columns:repeat(2,1fr)}
-      .grid-3,.grid-2{grid-template-columns:1fr}
-      .hero{padding-top:60px}
-    }
-    @media (max-width:760px){
-      .header-inner{padding:10px 0;align-items:flex-start}
-      .nav-actions{width:100%}
-      .nav-actions .btn{flex:1 1 100%}
-      .form-grid,.grid-4{grid-template-columns:1fr}
-      .btn-row{flex-direction:column}
-      .btn-row .btn{width:100%}
-      .hero{padding-top:52px}
-    }
-  </style>
+  <!-- Your built assets (adjust paths if your build changed) -->
+  <link rel="modulepreload" href="/assets/main-BCo5rl7x.js" />
+  <link rel="modulepreload" href="/assets/index-Bq7HeWRA.js" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+  <link
+    rel="stylesheet"
+    href="/assets/main-AMBFgiRx.css"
+    type="text/css"
+  />
 </head>
 <body>
-  <header class="header">
-    <div class="container header-inner">
-      <div class="brand-wrap">
-        <div class="brand">PUBBA LOGISTICS</div>
-        <div class="brand-sub">Expedited cargo van & sprinter freight – Denver Metro</div>
+  <div class="min-h-screen bg-black text-white font-body">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md border-b border-white/[0.06]">
+      <div class="max-w-7xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
+        <div class="font-heading text-3xl tracking-[0.15em] uppercase font-bold">
+          PUBBA LOGISTICS
+        </div>
+        <a
+          href="tel:3039002247"
+          class="bg-mint text-black font-semibold px-5 py-2.5 text-sm tracking-wide hover:bg-mint-hover transition-colors"
+        >
+          303-900-2247
+        </a>
       </div>
-      <div class="nav-actions">
-        <a class="btn btn-primary" href="tel:13039002247">Call Dispatch</a>
-        <a class="btn btn-secondary" href="#quote">Get a Quote</a>
-        <a class="btn btn-quiet" href="sms:13039002247">Text</a>
-        <a class="btn btn-quiet" href="mailto:dispatch@pubbalogistics.com">Email</a>
-      </div>
-    </div>
-  </header>
+    </header>
 
-  <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <div class="status">
-            <span class="dot"></span>
-            On-call for urgent business freight in Denver Metro
+    <section class="relative pt-24 pb-20 md:pt-28 md:pb-24 px-6 md:px-10 overflow-hidden">
+      <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-10 lg:gap-14">
+        <div class="flex-1 space-y-6 text-center lg:text-left">
+          <div>
+            <h1
+              class="font-heading text-[4rem] md:text-[6rem] lg:text-[7.5rem] leading-[0.9] tracking-[0.04em] uppercase"
+            >
+              PUBBA<br />LOGISTICS
+            </h1>
+            <p
+              class="mt-3 font-heading text-2xl md:text-3xl tracking-[0.12em] text-[#33cc99] uppercase"
+            >
+              Sprint Freight &amp; Cargo
+            </p>
           </div>
-          <h1>FAST. DIRECT. RELIABLE.</h1>
-          <p class="hero-subline">Dedicated cargo van & sprinter capacity for time-critical commercial loads.</p>
-          <p class="lead">
-            Expedited cargo van and sprinter freight for brokers, contractors,
-            suppliers, and commercial clients. Same-day pickups. Direct delivery.
-            Built for businesses that need it done right.
+          <p
+            class="text-lg md:text-xl text-white/60 max-w-lg mx-auto lg:mx-0 leading-relaxed"
+          >
+            Fast response. No delays. Built for businesses that need freight done right.
           </p>
-
-          <div class="btn-row">
-            <a class="btn btn-primary" href="tel:13039002247">Call Dispatch</a>
-            <a class="btn btn-secondary" href="#quote">Request a Freight Quote</a>
-          </div>
-
-          <div class="pills">
-            <span class="pill">Same-day & ASAP service</span>
-            <span class="pill">Dedicated B2B freight</span>
-            <span class="pill">Cargo van & sprinter capacity</span>
-            <span class="pill">Contract & recurring lanes</span>
+          <p
+            class="text-sm md:text-base text-white/40 tracking-wide max-w-lg mx-auto lg:mx-0"
+          >
+            Serving Denver Metro • Available for Contract Work
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <a
+              href="tel:3039002247"
+              class="bg-mint text-black font-semibold px-8 py-4 text-lg tracking-wide hover:bg-mint-hover transition-colors text-center"
+            >
+              Call Now — 303-900-2247
+            </a>
+            <a
+              href="#quote"
+              class="border border-white/20 text-white font-semibold px-8 py-4 text-lg tracking-wide hover:border-white/50 transition-colors text-center"
+            >
+              Request a Quote
+            </a>
           </div>
         </div>
 
-        <div class="hero-image" aria-hidden="true">
-          <div class="hero-image-inner">
-            <!-- Replace the src below with your real image -->
-            <img src="hero-van.jpg" alt="Pubba Logistics cargo van ready for expedited freight" />
-            <div class="hero-image-badge">Based in Denver • Commercial freight • Same-day options</div>
+        <div class="flex-1 flex items-center justify-center w-full lg:flex-[1.3]">
+          <div class="relative w-full max-w-lg lg:max-w-2xl">
+            <img
+              src="/Final_Van_Pic.png"
+              alt="Pubba Logistics cargo van"
+              class="w-full h-auto object-contain rounded-lg shadow-[0_8px_40px_rgba(0,0,0,0.5)]"
+            />
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="services">
-      <div class="container">
-        <span class="eyebrow">What We Handle</span>
-        <h2>Freight Service Built for Business</h2>
-        <p class="lead">
-          Clear service lines and dependable capacity for commercial clients that need speed,
-          communication, and consistency.
+    <section class="py-24 md:py-32 px-6 md:px-10 border-t border-white/[0.06]">
+      <div class="max-w-7xl mx-auto">
+        <p
+          class="text-center text-xs tracking-[0.3em] uppercase text-mint font-medium"
+        >
+          What We Do
         </p>
+        <h2
+          class="font-heading text-4xl md:text-5xl tracking-[0.04em] uppercase mt-3 mb-16 text-center"
+        >
+          Services
+        </h2>
 
-        <div class="grid grid-4" style="margin-top:30px">
-          <div class="card">
-            <h3>Expedited Freight</h3>
-            <p>Time-critical shipments moved with urgency and direct coordination so freight does not sit on the dock.</p>
-          </div>
-          <div class="card">
-            <h3>Same-Day Delivery</h3>
-            <p>Fast pickup and delivery for parts, equipment, and urgent commercial materials that cannot wait.</p>
-          </div>
-          <div class="card">
-            <h3>Last-Mile Commercial</h3>
-            <p>Reliable final-leg delivery for suppliers, contractors, and local businesses that need a professional carrier.</p>
-          </div>
-          <div class="card">
-            <h3>Dedicated Routes</h3>
-            <p>Recurring capacity for contract work, repeat lanes, and ongoing jobs with a consistent partner.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="why-us">
-      <div class="container">
-        <span class="eyebrow">Why Pubba Logistics</span>
-        <h2>Serious Service. No Runaround.</h2>
-
-        <div class="grid grid-2" style="margin-top:30px">
-          <div class="card">
-            <h3>Built for Commercial Clients</h3>
-            <p>We serve brokers, contractors, suppliers, and businesses that need a dependable freight partner.</p>
-            <div class="list">
-              <div class="list-item"><span class="check">✓</span><span>Fast response when timing matters</span></div>
-              <div class="list-item"><span class="check">✓</span><span>Direct communication with dispatch</span></div>
-              <div class="list-item"><span class="check">✓</span><span>Professional image, clear expectations, and clean equipment</span></div>
-            </div>
-          </div>
-
-          <div class="card">
-            <h3>Built for Repeat Business</h3>
-            <p>The goal is not one shipment. The goal is to be the carrier clients call first when freight has to move.</p>
-            <div class="list">
-              <div class="list-item"><span class="check">✓</span><span>Available for recurring jobs and contract work</span></div>
-              <div class="list-item"><span class="check">✓</span><span>Dedicated vehicle service options</span></div>
-              <div class="list-item"><span class="check">✓</span><span>Business-first positioning with a focus on reliability</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="process">
-      <div class="container">
-        <span class="eyebrow">How It Works</span>
-        <h2>Simple. Fast. Done.</h2>
-
-        <div class="grid grid-3" style="margin-top:30px">
-          <div class="card">
-            <h3>01. Send the Load Details</h3>
-            <p>Call, text, email, or submit the quote form with pickup, delivery, timing, and freight info.</p>
-          </div>
-          <div class="card">
-            <h3>02. Get a Fast Response</h3>
-            <p>We confirm availability, review the shipment, and respond with pricing and next steps quickly.</p>
-          </div>
-          <div class="card">
-            <h3>03. Pickup and Delivery</h3>
-            <p>Freight moves direct with clear communication and professional handling from start to finish.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="service-area">
-      <div class="container split">
-        <div class="info-block">
-          <span class="eyebrow">Service Area</span>
-          <h2>Denver Focus. Regional Reach.</h2>
-          <p class="lead">
-            Based in the Denver Metro area and available for local, same-day, and
-            regional business freight.
-          </p>
-          <div class="list">
-            <div class="list-item"><span class="check">✓</span><span>Denver Metro commercial delivery</span></div>
-            <div class="list-item"><span class="check">✓</span><span>Local and regional transport (e.g. Colorado Springs, Fort Collins, and beyond)</span></div>
-            <div class="list-item"><span class="check">✓</span><span>Ongoing contract and recurring lane opportunities welcome</span></div>
-          </div>
-        </div>
-
-        <div class="info-block">
-          <span class="eyebrow">Contact Dispatch</span>
-          <h3>Need a load moved now?</h3>
-          <p class="lead">Choose the fastest way to reach us. Phone first. Text and email right behind it.</p>
-
-          <div class="contact-stack">
-            <a class="contact-item" href="tel:13039002247">
-              <span class="contact-label">Call</span>
-              <span class="contact-value">303-900-2247</span>
-            </a>
-            <a class="contact-item" href="sms:13039002247">
-              <span class="contact-label">Text</span>
-              <span class="contact-value">Text dispatch for immediate response</span>
-            </a>
-            <a class="contact-item" href="mailto:dispatch@pubbalogistics.com">
-              <span class="contact-label">Email</span>
-              <span class="contact-value">dispatch@pubbalogistics.com</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="quote">
-      <div class="container split">
-        <div class="info-block">
-          <span class="eyebrow">Quote Request</span>
-          <h2>Request a Business Freight Quote</h2>
-          <p class="lead">
-            A short, dispatch-style intake form for brokers and business clients. Capture what matters without slowing down urgent freight.
-          </p>
-          <div class="list">
-            <div class="list-item"><span class="check">✓</span><span>Fast way for brokers and business clients to send load details</span></div>
-            <div class="list-item"><span class="check">✓</span><span>Good for urgent freight and recurring route inquiries</span></div>
-            <div class="list-item"><span class="check">✓</span><span>Netlify Forms compatible with no backend required</span></div>
-          </div>
-        </div>
-
-        <div class="info-block">
-          <form name="quote-request" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-            <input type="hidden" name="form-name" value="quote-request" />
-            <p style="display:none">
-              <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/[0.06]">
+          <div
+            class="bg-black p-10 md:p-12 group hover:bg-white/[0.02] transition-colors"
+          >
+            <h3
+              class="font-heading text-2xl tracking-[0.06em] uppercase mb-4 group-hover:text-mint transition-colors"
+            >
+              Last Mile Delivery
+            </h3>
+            <p class="text-white/50 leading-relaxed">
+              Dependable final-leg delivery to businesses across the Denver Metro area. On
+              time, every time.
             </p>
+          </div>
 
-            <div class="form-grid">
-              <div class="field">
-                <label for="name">Full Name</label>
-                <input id="name" name="name" type="text" required />
-              </div>
-              <div class="field">
-                <label for="company">Company Name</label>
-                <input id="company" name="company" type="text" />
-              </div>
-              <div class="field">
-                <label for="phone">Phone</label>
-                <input id="phone" name="phone" type="tel" required />
-              </div>
-              <div class="field">
-                <label for="email">Email</label>
-                <input id="email" name="email" type="email" required />
-              </div>
-              <div class="field">
-                <label for="pickup">Pickup Location</label>
-                <input id="pickup" name="pickup_location" type="text" required />
-              </div>
-              <div class="field">
-                <label for="dropoff">Dropoff Location</label>
-                <input id="dropoff" name="dropoff_location" type="text" required />
-              </div>
-              <div class="field">
-                <label for="pickup-time">Pickup Time</label>
-                <input id="pickup-time" name="pickup_time" type="text" placeholder="ASAP, today by 3 PM, tomorrow morning" />
-              </div>
-              <div class="field">
-                <label for="urgency">Urgency</label>
-                <select id="urgency" name="urgency">
-                  <option value="">Select one</option>
-                  <option>ASAP</option>
-                  <option>Same Day</option>
-                  <option>Scheduled</option>
-                  <option>Recurring / Contract Work</option>
-                </select>
-              </div>
-              <div class="field full">
-                <label for="freight">Freight Description</label>
-                <input id="freight" name="freight_description" type="text" placeholder="What are we moving?" />
-              </div>
-              <div class="field full">
-                <label for="details">Load Details</label>
-                <textarea id="details" name="details" placeholder="Include dimensions, weight, pieces, special handling, dock notes, and any timing details"></textarea>
-              </div>
-            </div>
-
-            <button class="btn btn-primary" type="submit">Send Quote Request</button>
-            <p class="microcopy">
-              You’ll get a response as soon as dispatch reviews your load details.
-              For urgent freight, calling or texting dispatch is the fastest option.
+          <div
+            class="bg-black p-10 md:p-12 group hover:bg-white/[0.02] transition-colors"
+          >
+            <h3
+              class="font-heading text-2xl tracking-[0.06em] uppercase mb-4 group-hover:text-mint transition-colors"
+            >
+              Expedited Freight
+            </h3>
+            <p class="text-white/50 leading-relaxed">
+              Time-critical shipments handled with urgency. We prioritize speed without
+              sacrificing care.
             </p>
-          </form>
-        </div>
-      </div>
-    </section>
+          </div>
 
-    <section class="section">
-      <div class="container">
-        <div class="cta-banner">
-          <span class="eyebrow">Final Call to Action</span>
-          <h2>Need Freight Moved Fast?</h2>
-          <p class="lead">
-            Pubba Logistics is built for businesses that need a dependable carrier,
-            fast communication, and direct service without the runaround.
-          </p>
-          <div class="btn-row">
-            <a class="btn btn-primary" href="tel:13039002247">Call 303-900-2247</a>
-            <a class="btn btn-secondary" href="#quote">Request a Quote</a>
-            <a class="btn btn-secondary" href="sms:13039002247">Text Dispatch</a>
-            <a class="btn btn-secondary" href="mailto:dispatch@pubbalogistics.com">Email Dispatch</a>
+          <div
+            class="bg-black p-10 md:p-12 group hover:bg-white/[0.02] transition-colors"
+          >
+            <h3
+              class="font-heading text-2xl tracking-[0.06em] uppercase mb-4 group-hover:text-mint transition-colors"
+            >
+              Local &amp; Regional Transport
+            </h3>
+            <p class="text-white/50 leading-relaxed">
+              Scheduled and on-demand freight transport covering Denver and the surrounding
+              region.
+            </p>
+          </div>
+
+          <div
+            class="bg-black p-10 md:p-12 group hover:bg-white/[0.02] transition-colors"
+          >
+            <h3
+              class="font-heading text-2xl tracking-[0.06em] uppercase mb-4 group-hover:text-mint transition-colors"
+            >
+              Dedicated B2B Logistics
+            </h3>
+            <p class="text-white/50 leading-relaxed">
+              Exclusive vehicle runs for your business — no shared loads, no detours, no
+              excuses.
+            </p>
           </div>
         </div>
       </div>
     </section>
-  </main>
 
-  <footer>
-    <div class="container footer-wrap">
-      <div>
-        <strong style="display:block;margin-bottom:6px">PUBBA LOGISTICS</strong>
-        <div style="color:#b9b9b9">Expedited B2B cargo van and sprinter freight.</div>
+    <section class="py-24 md:py-32 px-6 md:px-10 border-t border-white/[0.06]">
+      <div class="max-w-7xl mx-auto">
+        <p
+          class="text-center text-xs tracking-[0.3em] uppercase text-mint font-medium"
+        >
+          The Difference
+        </p>
+        <h2
+          class="font-heading text-4xl md:text-5xl tracking-[0.04em] uppercase mt-3 mb-16 text-center"
+        >
+          Why Pubba Logistics
+        </h2>
+
+        <div class="max-w-3xl mx-auto space-y-0">
+          <div
+            class="flex gap-6 items-start py-8 border-b border-white/[0.06] last:border-b-0"
+          >
+            <span class="font-heading text-3xl text-white/10 mt-0.5 select-none">
+              01
+            </span>
+            <div>
+              <h3 class="text-lg font-semibold tracking-wide uppercase mb-2">
+                Fast Response Times
+              </h3>
+              <p class="text-white/50 leading-relaxed">
+                We pick up the phone and get moving. No waiting, no runaround.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="flex gap-6 items-start py-8 border-b border-white/[0.06] last:border-b-0"
+          >
+            <span class="font-heading text-3xl text-white/10 mt-0.5 select-none">
+              02
+            </span>
+            <div>
+              <h3 class="text-lg font-semibold tracking-wide uppercase mb-2">
+                On-Time, Every Time
+              </h3>
+              <p class="text-white/50 leading-relaxed">
+                Consistent delivery performance you can stake your business reputation on.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="flex gap-6 items-start py-8 border-b border-white/[0.06] last:border-b-0"
+          >
+            <span class="font-heading text-3xl text-white/10 mt-0.5 select-none">
+              03
+            </span>
+            <div>
+              <h3 class="text-lg font-semibold tracking-wide uppercase mb-2">
+                Direct Communication
+              </h3>
+              <p class="text-white/50 leading-relaxed">
+                Talk directly to your driver. Real-time updates, zero middlemen.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="flex gap-6 items-start py-8 border-b border-white/[0.06] last:border-b-0"
+          >
+            <span class="font-heading text-3xl text-white/10 mt-0.5 select-none">
+              04
+            </span>
+            <div>
+              <h3 class="text-lg font-semibold tracking-wide uppercase mb-2">
+                Reliable Service
+              </h3>
+              <p class="text-white/50 leading-relaxed">
+                Professional operators who treat your freight like revenue — because it is.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="flex gap-6 items-start py-8 border-b border-white/[0.06] last:border-b-0"
+          >
+            <span class="font-heading text-3xl text-white/10 mt-0.5 select-none">
+              05
+            </span>
+            <div>
+              <h3 class="text-lg font-semibold tracking-wide uppercase mb-2">
+                Built for Business Clients
+              </h3>
+              <p class="text-white/50 leading-relaxed">
+                We understand B2B timelines, purchase orders, and the cost of a missed
+                delivery.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="footer-links">
-        <a href="tel:13039002247">303-900-2247</a>
-        <a href="sms:13039002247">Text Dispatch</a>
-        <a href="mailto:dispatch@pubbalogistics.com">dispatch@pubbalogistics.com</a>
+    </section>
+
+    <section
+      class="py-24 md:py-32 px-6 md:px-10 border-t border-white/[0.06] bg-white/[0.02]"
+    >
+      <div class="max-w-7xl mx-auto">
+        <p
+          class="text-center text-xs tracking-[0.3em] uppercase text-mint font-medium"
+        >
+          Simple Process
+        </p>
+        <h2
+          class="font-heading text-4xl md:text-5xl tracking-[0.04em] uppercase mt-3 mb-16 text-center"
+        >
+          How It Works
+        </h2>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 max-w-4xl mx-auto"
+        >
+          <div class="text-center">
+            <div class="font-heading text-6xl text-mint/20 mb-4">01</div>
+            <h3
+              class="font-heading text-xl tracking-[0.08em] uppercase mb-3"
+            >
+              Call or Request a Quote
+            </h3>
+            <p class="text-white/50 leading-relaxed">
+              Reach out by phone or form. We respond fast.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="font-heading text-6xl text-mint/20 mb-4">02</div>
+            <h3
+              class="font-heading text-xl tracking-[0.08em] uppercase mb-3"
+            >
+              We Pick Up
+            </h3>
+            <p class="text-white/50 leading-relaxed">
+              Our driver arrives on schedule, ready to move.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="font-heading text-6xl text-mint/20 mb-4">03</div>
+            <h3
+              class="font-heading text-xl tracking-[0.08em] uppercase mb-3"
+            >
+              We Deliver Fast
+            </h3>
+            <p class="text-white/50 leading-relaxed">
+              Your freight arrives on time. No exceptions.
+            </p>
+          </div>
+        </div>
       </div>
-    </div>
-  </footer>
+    </section>
+
+    <section class="py-24 md:py-32 px-6 md:px-10 border-t border-white/[0.06]">
+      <div class="max-w-7xl mx-auto">
+        <div class="max-w-3xl mx-auto text-center space-y-12">
+          <div>
+            <p
+              class="text-center text-xs tracking-[0.3em] uppercase text-mint font-medium"
+            >
+              Trust
+            </p>
+            <h2
+              class="font-heading text-4xl md:text-5xl tracking-[0.04em] uppercase mt-3"
+            >
+              Your Freight Partner
+            </h2>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="p-8 border border-white/[0.06] bg-white/[0.02]">
+              <h3
+                class="font-semibold tracking-wide uppercase text-sm mb-3 text-mint"
+              >
+                Serving Denver Metro
+              </h3>
+              <p class="text-white/50 leading-relaxed text-sm">
+                Local expertise across the entire Denver metropolitan area and
+                surrounding region.
+              </p>
+            </div>
+
+            <div class="p-8 border border-white/[0.06] bg-white/[0.02]">
+              <h3
+                class="font-semibold tracking-wide uppercase text-sm mb-3 text-mint"
+              >
+                Ongoing Contracts
+              </h3>
+              <p class="text-white/50 leading-relaxed text-sm">
+                Available for recurring business contracts with dedicated capacity and
+                priority scheduling.
+              </p>
+            </div>
+
+            <div class="p-8 border border-white/[0.06] bg-white/[0.02]">
+              <h3
+                class="font-semibold tracking-wide uppercase text-sm mb-3 text-mint"
+              >
+                Reliable Partner
+              </h3>
+              <p class="text-white/50 leading-relaxed text-sm">
+                A freight partner local companies trust for consistent, professional
+                delivery.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="quote"
+      class="py-28 md:py-36 px-6 md:px-10 border-t border-white/[0.06] bg-white/[0.02]"
+    >
+      <div class="max-w-3xl mx-auto text-center space-y-8">
+        <h2
+          class="font-heading text-5xl md:text-6xl lg:text-7xl tracking-[0.04em] uppercase leading-[0.95]"
+        >
+          Need Freight<br />Moved Fast?
+        </h2>
+        <p class="text-white/50 text-lg max-w-md mx-auto">
+          Get in touch now. We're ready to pick up and deliver.
+        </p>
+        <div class="space-y-4">
+          <a
+            href="tel:3039002247"
+            class="inline-block bg-mint text-black font-semibold px-10 py-5 text-lg tracking-wide hover:bg-mint-hover transition-colors"
+          >
+            Call Now — 303-900-2247
+          </a>
+          <p class="text-white/40 text-sm">
+            Prefer email?
+            <a
+              href="mailto:dispatch@pubbalogistics.com"
+              class="text-white/60 hover:text-white transition-colors"
+            >
+              dispatch@pubbalogistics.com
+            </a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="border-t border-white/[0.06] py-12 px-6 md:px-10">
+      <div
+        class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8"
+      >
+        <div class="font-heading text-xl tracking-[0.15em] uppercase">
+          PUBBA LOGISTICS
+        </div>
+        <div
+          class="flex flex-col md:flex-row items-center gap-4 md:gap-8 text-sm text-white/40"
+        >
+          <a
+            href="mailto:dispatch@pubbalogistics.com"
+            class="hover:text-white transition-colors"
+          >
+            dispatch@pubbalogistics.com
+          </a>
+          <span class="hidden md:inline text-white/10">|</span>
+          <span>Denver Metro</span>
+          <span class="hidden md:inline text-white/10">|</span>
+          <span>pubbalogistics.com</span>
+        </div>
+        <div class="text-xs text-white/20">
+          © 2026 Pubba Logistics
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Framework / router script block from your original build -->
+  <script class="$tsr" id="$tsr-stream-barrier">
+    (self.$R=self.$R||{})["tsr"]=[];self.$_TSR={h(){this.hydrated=!0,this.c()},e(){this.streamEnded=!0,this.c()},c(){this.hydrated&&this.streamEnded&&(delete self.$_TSR,delete self.$R.tsr)},p(e){this.initialized?e():this.buffer.push(e)},buffer:[]};
+    $_TSR.router=($R=>$R[0]={manifest:$R[1]={routes:$R[2]={__root__:$R[3]={preloads:$R[4]=["/assets/main-BCo5rl7x.js"],assets:$R[5]=[$R[6]={tag:"link",attrs:$R[7]={rel:"stylesheet",href:"/assets/main-AMBFgiRx.css",type:"text/css"}},$R[8]={tag:"script",attrs:$R[9]={type:"module",async:!0},children:"import(\"/assets/main-BCo5rl7x.js\")"}]},"/":$R[10]={preloads:$R[11]=["/assets/index-Bq7HeWRA.js"]}}},matches:$R[12]=[$R[13]={i:"__root__",u:1774573388569,s:"success",ssr:!0},$R[14]={i:"",u:1774573388569,s:"success",ssr:!0}],lastMatchId:""})($R["tsr"]);
+    $_TSR.e();
+    document.currentScript.remove();
+  </script>
+  <script type="module" async>
+    import("/assets/main-BCo5rl7x.js");
+  </script>
 </body>
 </html>

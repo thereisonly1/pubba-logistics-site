@@ -40,6 +40,7 @@
 
     body {
       font-family: "Inter", sans-serif;
+      font-size: 16px;
       background: var(--black);
       color: var(--white);
       line-height: 1.6;
@@ -70,11 +71,6 @@
       padding: 0 24px;
     }
 
-    section,
-.container,
-.services-grid {
-  max-width: 100%;
-}
     @media (min-width: 1280px) {
       .container {
         max-width: 1380px;
@@ -103,6 +99,7 @@
     .section-title {
       font-size: clamp(42px, 6vw, 72px);
       margin-bottom: 18px;
+      line-height: 1.1;
     }
 
     .section-subtitle {
@@ -259,12 +256,12 @@
       background: #0a0a0a;
     }
 
-   .hero .container {
-  display: grid;
-  grid-template-columns: 1fr 1.15fr;
-  gap: 56px;
-  align-items: center;
-}
+    .hero .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
 
     .hero__headline {
       font-size: clamp(68px, 9vw, 118px);
@@ -328,58 +325,37 @@
       font-size: 16px;
     }
 
-    .hero__visual {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    .hero__visual,
+    .service-area__image {
+      width: 100%;
+      max-width: 780px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-.hero__visual {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  min-height: 420px;
-}
+    .hero__van-wrap {
+      width: 100%;
+    }
 
-.hero__van-wrap {
-  width: 100%;
-  max-width: 1050px;
-  aspect-ratio: 3 / 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+    .hero__van-img,
+    .service-area__image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+    }
 
-.hero__van-img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center;
-  display: block;
-  filter: drop-shadow(0 24px 80px rgba(0, 0, 0, 0.55));
-}
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(280px, 1fr));
-  gap: 1px;
-  margin-top: 48px;
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  overflow: hidden;
-  background: var(--border);
-}
-@media (max-width: 1200px) {
-  .services-grid {
-    grid-template-columns: repeat(2, minmax(280px, 1fr));
-  }
-}
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      margin-top: 48px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--border);
+    }
 
-@media (max-width: 768px) {
-  .services-grid {
-    grid-template-columns: 1fr;
-  }
-}
     .service-card {
       background: var(--black);
       padding: 48px 36px;
@@ -477,6 +453,7 @@
     .mid-cta {
       text-align: center;
       padding: 84px 0;
+      border-top: 1px solid var(--border);
     }
 
     .mid-cta__headline {
@@ -492,6 +469,34 @@
 
     .mid-cta .btn-group {
       justify-content: center;
+    }
+
+    .service-area__image {
+      margin-top: 48px;
+    }
+
+    .area-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 32px;
+      padding: 20px 26px;
+      border-radius: 12px;
+      background: var(--gray-dark);
+      border: 1px solid var(--border);
+    }
+
+    .area-badge svg {
+      width: 22px;
+      height: 22px;
+      color: var(--mint);
+      flex-shrink: 0;
+    }
+
+    .area-badge__text {
+      font-size: 15px;
+      color: var(--gray-light);
+      line-height: 1.6;
     }
 
     .steps {
@@ -529,30 +534,6 @@
       font-size: 14px;
       color: var(--gray-light);
       line-height: 1.65;
-    }
-
-    .area-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      margin-top: 32px;
-      padding: 20px 26px;
-      border-radius: 12px;
-      background: var(--gray-dark);
-      border: 1px solid var(--border);
-    }
-
-    .area-badge svg {
-      width: 22px;
-      height: 22px;
-      color: var(--mint);
-      flex-shrink: 0;
-    }
-
-    .area-badge__text {
-      font-size: 15px;
-      color: var(--gray-light);
-      line-height: 1.6;
     }
 
     .form-wrapper {
@@ -645,6 +626,7 @@
     .final-cta {
       text-align: center;
       padding: 120px 0;
+      border-top: 1px solid var(--border);
     }
 
     .final-cta__headline {
@@ -672,43 +654,28 @@
       font-size: 13px;
       color: rgba(255, 255, 255, 0.34);
     }
-.area-badge__text {
-  font-size: 15px;
-  color: var(--gray-light);
-  line-height: 1.6;
-}
 
-.service-area__image {
-  margin-top: 48px;
-  width: 100%;
-  max-width: 1050px;  
-  margin-left: auto;
-  margin-right: auto;
-  overflow: hidden;
-}
+    @media (max-width: 1200px) {
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
 
-.service-area__image img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-  filter: contrast(1.05) brightness(0.95);
-}
-
-@media (max-width: 1023px) {
+    @media (max-width: 1023px) {
       .hero .container,
       .split-section,
       .steps,
       .form-grid {
         grid-template-columns: 1fr;
       }
-  
-      .services-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      }
 
       .split-section__intro {
         position: static;
+      }
+
+      .hero__visual,
+      .service-area__image {
+        max-width: 780px;
       }
     }
 
@@ -797,6 +764,10 @@
       .final-cta {
         padding: 84px 0;
       }
+
+      .area-badge {
+        width: 100%;
+      }
     }
 
     @media (max-width: 480px) {
@@ -875,27 +846,24 @@
         </div>
       </div>
 
-<div class="hero__visual">
-  <div class="hero__van-wrap">
-    <img
-      src="Finial_Final_Van_Pic.png"
-      alt="Pubba Logistics sprinter van"
-      class="hero__van-img"
-      loading="eager"
-      width="1536"
-      height="1024"
-      decoding="async"
-    />
-  </div>
-</div>
+      <div class="hero__visual">
+        <div class="hero__van-wrap">
+          <img
+            src="Finial_Final_Van_Pic.png"
+            alt="Pubba Logistics sprinter van"
+            class="hero__van-img"
+            loading="eager"
+          />
+        </div>
+      </div>
     </div>
-</section>
+  </section>
 
-<section class="section section--border" id="services">
-  <div class="container">
-    <span class="section-label">Services</span>
-    <h2 class="section-title">WHAT WE HANDLE</h2>
-    <p class="section-subtitle">Built for time-critical freight. Direct delivery. No delays.</p>
+  <section class="section section--border" id="services">
+    <div class="container">
+      <span class="section-label">Services</span>
+      <h2 class="section-title">WHAT WE HANDLE</h2>
+      <p class="section-subtitle">Built for time-critical freight. Direct delivery. No delays.</p>
 
       <div class="services-grid">
         <div class="service-card">
@@ -1036,7 +1004,7 @@
     </div>
   </section>
 
-  <section class="mid-cta section--border">
+  <section class="mid-cta">
     <div class="container">
       <h2 class="mid-cta__headline">READY TO MOVE YOUR FREIGHT?</h2>
       <p class="mid-cta__sub">Call or text dispatch for fastest response.</p>
@@ -1122,6 +1090,28 @@
     </div>
   </section>
 
+  <section class="section section--border service-area">
+    <div class="container">
+      <span class="section-label">Coverage</span>
+      <h2 class="section-title">SERVICE AREA</h2>
+      <p class="section-subtitle">Based in Colorado. Running regional lanes.</p>
+
+      <div class="service-area__image">
+        <img src="New_New_Action.png" alt="Pubba Logistics van driving on highway" />
+      </div>
+
+      <div class="area-badge">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+        </svg>
+        <p class="area-badge__text">
+          Based in <strong>Colorado</strong>. Running regional lanes across surrounding states. Contact us for availability on your lane.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <section class="section section--border">
     <div class="container">
       <span class="section-label">Process</span>
@@ -1150,31 +1140,6 @@
     </div>
   </section>
 
-<section class="section section--border service-area">
-  <div class="container">
-    <span class="section-label">Coverage</span>
-    <h2 class="section-title">SERVICE AREA</h2>
-    <p class="section-subtitle">
-      Based in Colorado. Running regional lanes.
-    </p>
-
-<div class="service-area__image">
-  <img src="New_New_Action.png" alt="Pubba Logistics van driving on highway" />
-</div>
-
-    <div class="area-badge">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-        <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-      </svg>
-
-      <p class="area-badge__text">
-        Based in <strong>Colorado</strong>. Running regional lanes across surrounding states. Contact us for availability on your lane.
-      </p>
-    </div>
-  </div>
-</section>
-  
   <section class="section section--border" id="quote">
     <div class="container">
       <span class="section-label">Quote</span>
@@ -1264,7 +1229,7 @@
     </div>
   </section>
 
-  <section class="final-cta section--border">
+  <section class="final-cta">
     <div class="container">
       <h2 class="final-cta__headline">NEED A DRIVER<br />NOW?</h2>
       <p class="final-cta__sub">We are ready. Contact dispatch and get moving.</p>

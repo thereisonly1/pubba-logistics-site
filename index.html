@@ -686,14 +686,23 @@
   position: relative;
 }
 
+.service-area__image {
+  margin-top: 48px;
+  max-width: 900px;       
+  margin-left: auto;
+  margin-right: auto;    
+  border-radius: 18px;
+  overflow: hidden;
+}
+
 .service-area__image img {
   width: 100%;
   height: auto;
   display: block;
+  object-fit: cover;
   filter: contrast(1.05) brightness(0.95);
 }
 
-/* then your media queries continue */
 @media (max-width: 1023px) {
       .hero .container,
       .split-section,

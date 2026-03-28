@@ -657,8 +657,29 @@
       font-size: 13px;
       color: rgba(255, 255, 255, 0.34);
     }
+.area-badge__text {
+  font-size: 15px;
+  color: var(--gray-light);
+  line-height: 1.6;
+}
 
-    @media (max-width: 1023px) {
+/* 🔥 ADD THIS RIGHT HERE */
+.service-area__image {
+  margin-top: 48px;
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+}
+
+.service-area__image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: contrast(1.05) brightness(0.95);
+}
+
+/* then your media queries continue */
+@media (max-width: 1023px) {
       .hero .container,
       .split-section,
       .steps,
@@ -854,8 +875,23 @@
     </div>
   </section>
 
-  <section class="section section--border" id="services">
-    <div class="container">
+<section class="section section--border service-area">
+  <div class="container">
+    <span class="section-label">Coverage</span>
+    <h2 class="section-title">SERVICE AREA</h2>
+    <p class="section-subtitle">Based in Colorado. Running regional lanes.</p>
+
+    <div class="service-area__image">
+      <img src="service-area.jpg" alt="Pubba Logistics van driving on highway" />
+    </div>
+
+    <div class="area-badge">
+      <p class="area-badge__text">
+        Based in <strong>Colorado</strong>. Running regional lanes across surrounding states.
+      </p>
+    </div>
+  </div>
+</section>
       <span class="section-label">Services</span>
       <h2 class="section-title">WHAT WE HANDLE</h2>
       <p class="section-subtitle">Built for time-critical freight. Direct delivery. No delays.</p>
